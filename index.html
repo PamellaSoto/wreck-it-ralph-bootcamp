@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="shortcut icon" href="./src/images/ralph.png" type="image/x-icon">
+    <title>Wreck it Ralph!</title>
+</head>
+<body>
+
+    <div class="container">
+        <div id="new-game" class="game-message">
+            <span>Welcome to<br>Wreck-It Ralph!</span>
+            <p>Choose your difficulty:</p>
+            
+            <button onclick="gameStart('easy')">Easy</button>
+            <button onclick="gameStart('medium')">Medium</button>
+            <button onclick="gameStart('hard')">Hard</button>
+        </div>
+        
+        <div id="game-over" class="game-message hidden">
+            <span>Game over!</span>
+            <p></p>
+            <button onclick="window.location.reload()">Play Again?</button>
+        </div>
+        <div class="menu">
+            <div class="menu-label menu-timer">
+                <p>Time left:</p>
+                <span id="game-timer">00:00</span>
+            </div>
+            <div class="menu-label menu-score">
+                <p>Your score:</p>
+                <span id="game-score">0</span>
+            </div>
+            <div class="menu-label menu-lifes">
+                <p>Your lifes:</p>
+                <div class="lifes-container">
+                    <img class="lifes-image" src="./src/images/player.png">
+                    <img class="lifes-image" src="./src/images/player.png">
+                    <img class="lifes-image" src="./src/images/player.png">
+                </div>
+                
+            </div>
+        </div>
+        <div class="panel">
+            <div class="card" id="1"></div>
+            <div class="card" id="2"></div>
+            <div class="card" id="3"></div>
+            <div class="card" id="4"></div>
+            <div class="card" id="5"></div>
+            <div class="card" id="6"></div>
+            <div class="card" id="7"></div>
+            <div class="card" id="8"></div>
+            <div class="card" id="9"></div>
+        </div>
+    </div>
+    <script defer src="./src/scripts/engine.js"></script>
+</body>
+</html>

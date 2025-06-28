@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none;
+    list-style-type: none;
+    font-family: "Press Start 2P",'Segoe UI', sans-serif;
+    background-color: transparent;
+}
+body {
+    background-image: url(../images/brickwall-bg.png);
+    background-repeat: repeat;
+    overflow: hidden;
+}
+.hidden {
+    display: none !important;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+    padding: 40px;
+    width: fit-content;
+    background-color: #55010150;
+    border: 5px solid #550101;
+    border-radius: 15px;
+}
+
+.game-message {
+    position: absolute;
+    top: 20%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    max-width: 500px;
+    background-image: url(../images/brickwall-bg.png);
+    border: 5px solid #550101;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    box-shadow: 0px 0px 10px 5px #55010169;
+}
+    .game-message#game-over {
+        top: 35% !important;
+    }
+    #game-over p {
+    line-height: 40px;
+    }
+    .game-message span {
+        font-size: 25px;
+        line-height: 40px;
+        color: #ffc400;
+        text-shadow: 0px -3px 2px #602203;
+    }
+    .game-message button {
+        color: white;
+        text-transform: uppercase;
+        font-size: 30px;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    .game-message button:hover {
+        transform: translateY(3px);
+        text-shadow: 0px -3px 2px #602203;
+        color: #ffc400;
+    }
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+}
+
+.menu-label {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: white;
+}
+
+.lifes-image {
+    width: 40px;
+}
+
+.panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    border: 2px solid #ffc400;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    background-color: white;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card.enemy {
+    background-image: url(../images/ralph.png) !important;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
