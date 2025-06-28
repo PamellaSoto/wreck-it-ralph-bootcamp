@@ -1,6 +1,6 @@
 # 🕹️ Wreck-It Ralph! – DOM Practice Project
 
-![Game Screenshot](./game.png)
+![Game Screenshot](game.png)
 
 > A simple game inspired by the amazing *Wreck-It Ralph* movie.
 
@@ -18,13 +18,12 @@ This project was created during the **"Building a Wreck-It Ralph Game with JavaS
 - Random enemy generation
 - Scoring system
 - Life system and game-over logic
-- Audio support (optional/expandable)
 
 ---
 
 ## 🚀 How to Play
 
-1. Open [the game](link) in your browser.
+1. Open [the game](https://pamellasoto.github.io/wreck-it-ralph-bootcamp/) in your browser.
 2. Choose a difficulty level.
 3. Click on Ralph whenever he appears.
 4. Avoid clicking the wrong spots — you'll lose lives!

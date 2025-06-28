@@ -9,23 +9,39 @@ const state = {
         score: 0,
         sessionTime: 60,
         gameVelocity: {
-            easy: 1500,
-            medium: 1000,
-            hard: 150
+            easy: 700,
+            medium: 390,
+            hard: 250
         },
-        enemyCount: 0,
         lifes: 3
     }
 };
 
 let gameSession = null;
+let timerInterval = null;
 
 function gameStart(difficulty) {
     document.querySelector('#new-game').classList.add('hidden');
     setupCardHitBox();
-    state.view.timer.textContent = "00:" + state.values.sessionTime;
+    state.view.timer.textContent = "00:" + String(state.values.sessionTime).padStart(2, '0');
     loadTimer();
     gameSession = setInterval(createEnemy, state.values.gameVelocity[difficulty]);
+}
+
+function loadTimer() {
+    timerInterval = setInterval(() => {
+        state.values.sessionTime--;
+
+        if (state.values.sessionTime >= 0) {
+            state.view.timer.textContent = "00:" + String(state.values.sessionTime).padStart(2, '0');
+        }
+
+        if (state.values.sessionTime <= 0) {
+            clearInterval(timerInterval);
+            clearInterval(gameSession);
+            lostGame("Time's over!<br>Your score: " + state.values.score);
+        }
+    }, 1000);
 }
 
 function setupCardHitBox() {
@@ -37,20 +53,19 @@ function setupCardHitBox() {
 }
 
 function createEnemy() {
-    const randIndex = Math.floor(Math.random() * state.view.cards.length);
-    const card = state.view.cards[randIndex];
-    if (!card.classList.contains('enemy')) {
-        card.classList.add('enemy');
-        state.values.enemyCount += 1;
-    }
-    
-    checkEnemyCount();
-}
+    const availableCards = Array.from(state.view.cards).filter(
+        card => !card.classList.contains('enemy')
+    );
 
-function checkEnemyCount() {
-    if (state.values.enemyCount >= 9) {
+    if (availableCards.length === 0) {
+        clearInterval(gameSession);
+        clearInterval(timerInterval);
         lostGame("Too many enemies!<br>Your score: " + state.values.score);
     }
+    const randIndex = Math.floor(Math.random() * availableCards.length);
+    const card = availableCards[randIndex];
+    card.classList.add('enemy');
+    
 }
 
 function updateScore() {
@@ -60,7 +75,6 @@ function updateScore() {
 function clickedOnEnemy(card) {
     card.classList.remove('enemy');
     state.values.score += 1;
-    state.values.enemyCount -= 1;
     updateScore();
 }
 
@@ -70,23 +84,10 @@ function clickedOnFoe() {
     
     console.log(state.values.lifes)
     if (state.values.lifes === 0) {
+        clearInterval(gameSession);
+        clearInterval(timerInterval);
         lostGame("No more lives!<br>Your score: " + state.values.score);
     }
-}
-
-function loadTimer() {
-    const timerInterval = setInterval(() => {
-        state.values.sessionTime--;
-
-        if (state.values.sessionTime >= 0) {
-            state.view.timer.textContent = "00:" + String(state.values.sessionTime).padStart(2, '0');
-        }
-
-        if (state.values.sessionTime <= 0) {
-            clearInterval(timerInterval);
-            lostGame("Time's over!\nYour score: " + state.values.score);
-        }
-    }, 1000);
 }
 
 function lostGame(message) {

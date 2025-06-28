@@ -39,7 +39,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
     padding: 30px;
     max-width: 500px;
     background-image: url(../images/brickwall-bg.png);
@@ -55,9 +55,9 @@ body {
     #game-over p {
     line-height: 40px;
     }
-    .game-message span {
+    .game-message h2 {
         font-size: 25px;
-        line-height: 40px;
+        line-height: 35px;
         color: #ffc400;
         text-shadow: 0px -3px 2px #602203;
     }
