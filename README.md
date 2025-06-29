@@ -2,7 +2,9 @@
 
 ![Game Screenshot](game.png)
 
-> A simple game inspired by the amazing *Wreck-It Ralph* movie.
+A simple game inspired by the amazing *Wreck-It Ralph* movie.
+
+🔗 [**Play Now!**](https://pamellasoto.github.io/wreck-it-ralph-bootcamp/)
 
 ---
 
@@ -18,6 +20,13 @@ This project was created during the **"Building a Wreck-It Ralph Game with JavaS
 - Random enemy generation
 - Scoring system
 - Life system and game-over logic
+
+---
+
+## 🚧 To-do next
+- [ ] **Improve responsiveness** for all screen sizes
+- [ ] **Add a 3.5-second countdown** before the game starts, giving players time to prepare
+- [ ] **Introduce dynamic enemy spawn rates** that vary over time or based on difficulty level
 
 ---
 
